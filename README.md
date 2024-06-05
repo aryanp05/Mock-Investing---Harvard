@@ -7,6 +7,8 @@ BUT.... are you scared of losing all your money!?
 
 Well worry no further with Mock investor, an all in one platform that allows you to see how you would do in the stock market! You can create an account, and using $10,000 virtual USD, mock invest in any stocks you want! Simply type the ticker code and the amount you want to buy and it will be added to your account! You can see how you with a live portfolio that updates constantly so you can see how your stocks and portfolio are doing, and if your portolfio actualy went above $10,000!!! Have fun and explore, and get into investing!
 
+![Homepage](screenshot/homepage.png)
+
 ### User Registration and Authentication
 
 Users can create a new account by registering with a unique username and password. Registered users can log in to access their personalized dashboard.
@@ -35,6 +37,7 @@ Users can view a detailed history of all their transactions, including buys and 
 
 Users can change their account password by entering their current password and the new password. The application verifies the current password and updates the password if the new password and confirmation match.
 
+![History](screenshot/history.png)
 
 ## Technologies Used
 
