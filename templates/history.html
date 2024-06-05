@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <h3>Welcome</h3>
+    <div class="table-container">
+    <table id="stock-show">
+        <tr>
+            <th>Transaction</th>
+            <th>Stock</th>
+            <th># Holding</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+        {% for i in range(userinfo|length) %}
+        <tr>
+            <td>{{ userinfo[i][0] }}</td>
+            <td>{{ userinfo[i][1] }}</td>
+            <td>{{ userinfo[i][2] }}</td>
+            <td>{{ userinfo[i][3] | usd }}</td>
+            <td>{{ userinfo[i][4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

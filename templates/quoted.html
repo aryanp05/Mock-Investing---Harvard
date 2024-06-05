@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% if info is not none %}
+    <h3>Stock Information</h3>
+    <div class="table-container">
+        <table id="stock-quote">
+            <tr>
+                <th>Stock Symbol</th>
+                <th>Stock Price</th>
+            </tr>
+            <tr>
+                <td>{{ info["symbol"] }}</td>
+                <td>{{ info["price"] | usd }}</td>
+            </tr>
+        </table>
+    </div>
+    {% else %}
+    <h3><a href="/quote">Stock not found, please try again</a></h3>
+    {% endif %}
+
+
+{% endblock %}
