@@ -1,11 +1,14 @@
-# Mock Investor 
+# 💰 Mock Investor 💰
 
-**Do you want to get into investing?** <br>
-**Do you want to try your luck in the stock market?** <br>
-**Do you want to get rich?** <br>
-**BUT.... are you scared of losing all your money!?** <br>
+**Do you want to get into investing? 💵** <br>
+<br>
+**Do you want to try your luck in the stock market? 📈** <br>
+<br>
+**Do you want to get rich? 🤑** <br>
+<br>
+**BUT.... are you scared of losing all your money!? 😰** <br>
 
-Well worry no further with Mock investor, an all in one platform that allows you to see how you would do in the stock market! You can create an account, and using $10,000 virtual USD, mock invest in any stocks you want! Simply type the ticker code and the amount you want to buy and it will be added to your account! You can see how you with a live portfolio that updates constantly so you can see how your stocks and portfolio are doing, and if your portolfio actualy went above $10,000!!! Have fun and explore, and get into investing!
+**Well worry no further with Mock investor**, an all in one platform that allows you to see how you would do in the stock market! You can create an account, and using $10,000 virtual USD, mock invest in any stocks you want! Simply type the ticker code and the amount you want to buy and it will be added to your account! You can see how you with a live portfolio that updates constantly so you can see how your stocks and portfolio are doing, and if your portolfio actualy went above $10,000!!! Have fun and explore, and get into investing!
 
 ![Homepage](screenshot/homepage.png)
 
