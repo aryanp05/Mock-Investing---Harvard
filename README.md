@@ -56,7 +56,7 @@ Users can change their account password by entering their current password and t
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/mock-investing-finance.git
+    git clone https://github.com/aryanp05/mock-investing-finance.git
     cd mock-investing-finance
     ```
 
