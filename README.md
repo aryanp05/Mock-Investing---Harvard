@@ -82,6 +82,11 @@ Users can change their account password by entering their current password and t
 
 5. Open your browser and navigate to `http://127.0.0.1:5000`.
 
+## Configuration
+
+- **Session Configuration**: Configured to use the filesystem for session management.
+- **Database**: SQLite database named `finance.db`.
+
 ### Routes
 
 - `/`: Shows the user's stock portfolio.
