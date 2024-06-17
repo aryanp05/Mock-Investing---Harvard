@@ -1,4 +1,5 @@
 import os
+
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -16,11 +17,11 @@ app.jinja_env.filters["usd"] = usd
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "default_secret_key")
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL(os.getenv("DATABASE_URL", "sqlite:///finance.db"))
+db = SQL("sqlite:///finance.db")
+
 
 @app.after_request
 def after_request(response):
@@ -29,9 +30,6 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
-
-# The rest of your routes and application logic...
-
 
 
 @app.route("/")
