@@ -65,21 +65,29 @@ def buy():
         shares = request.form.get("shares")
 
         if not ticker or len(ticker) > 5:
-            return apology("Please enter a correct ticker code")
+            flash(f"Please enter a correct ticker code")
+            return render_template("buy.html")
+            #return apology("Please enter a correct ticker code")
 
         if not shares or not shares.isdigit() or int(shares) <= 0:
-            return apology("Please enter a correct amount of shares to purchase")
+            flash(f"Please enter a correct amount of shares to purchase")
+            return render_template("buy.html")
+            #return apology("Please enter a correct amount of shares to purchase")
 
         info = lookup(ticker)
         if info is None:
-            return apology("Please enter a correct stock symbol")
+            flash(f"Please enter a correct stock symbol")
+            return render_template("buy.html")
+            #return apology("Please enter a correct stock symbol")
 
         price = info["price"]
         total_cost = int(shares) * price
         cash = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])[0]["cash"]
 
         if cash < total_cost:
-            return apology("Do not have enough cash to buy enough shares")
+            flash(f"Do not have enough cash to buy enough shares")
+            return render_template("buy.html")
+            #return apology("Do not have enough cash to buy enough shares")
 
         new_cash = cash - total_cost
         db.execute("UPDATE users SET cash = ? WHERE id = ?;", new_cash, session["user_id"])
@@ -109,16 +117,22 @@ def change_password():
         confirmation = request.form.get("confirmation")
 
         if not username or not password or not old_password or not confirmation:
-            return apology("Please enter all fields")
+            flash(f"Please enter all fields")
+            return render_template("change-password.html")
+            #return apology("Please enter all fields")
 
         if not password == confirmation:
-            return apology("New passwords dont match")
+            flash(f"New passwords dont match")
+            return render_template("change-password.html")
+            #return apology("New passwords dont match")
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], old_password):
-            return apology("invalid username and/or password", 403)
+            flash(f"Username and/or password are incorrect")
+            return render_template("change-password.html")
+            #return apology("password username and/or password", 403)
 
         db.execute("UPDATE users SET hash = ? WHERE username = ?",
                    generate_password_hash(password), username)
@@ -159,11 +173,15 @@ def login():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            flash(f"Please type in a username")
+            return render_template("login.html")
+            #return apology("must provide username", 403)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            flash(f"Please type in a password")
+            return render_template("login.html")
+            #return apology("must provide password", 403)
 
         # Query database for username
         rows = db.execute(
@@ -174,7 +192,9 @@ def login():
         if len(rows) != 1 or not check_password_hash(
             rows[0]["hash"], request.form.get("password")
         ):
-            return apology("invalid username and/or password", 403)
+            flash(f"invalid username and/or password")
+            return render_template("login.html")
+            #return apology("invalid username and/or password", 403)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -211,7 +231,9 @@ def quote():
         info = lookup(ticker)
 
         if not ticker or len(ticker) > 5 or info is None:
-            return apology("Please enter a correct ticker code", 400)
+            flash(f"Please enter a correct ticker code")
+            return render_template("quote.html")
+            #return apology("Please enter a correct ticker code", 400)
 
         return render_template("quoted.html", info=info)
 
@@ -224,22 +246,32 @@ def register():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 400)
+            flash(f"must provide username")
+            return render_template("register.html")
+            #return apology("must provide username", 400)
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 400)
+            flash(f"must provide password")
+            return render_template("register.html")
+            #return apology("must provide password", 400)
         # Ensure confirmation was submitted
         elif not request.form.get("confirmation"):
-            return apology("must provide confirmation", 400)
+            flash(f"must provide confirmation")
+            return render_template("register.html")
+            #return apology("must provide confirmation", 400)
         # Ensure passwords match
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("passwords do not match", 400)
+            flash(f"passwords do not match")
+            return render_template("register.html")
+            #return apology("passwords do not match", 400)
 
         # Check if username already exists
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         if len(rows) != 0:
-            return apology("username already exists", 400)
+            flash(f"username already exists")
+            return render_template("register.html")
+            #return apology("username already exists", 400)
 
         # Insert new user into the database
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)",
@@ -273,21 +305,29 @@ def sell():
         shares = int(request.form.get("shares"))
 
         if not symbol or not shares:
-            return apology("Fill in all requirments")
+            flash(f"Fill in all requirments")
+            return render_template("/sell.html")
+            #return apology("Fill in all requirments")
 
         if int(shares) <= 0:
-            return apology("Please enter a correct amount of shares")
+            flash(f"Please enter a correct amount of shares")
+            return render_template("/sell.html")
+            #return apology("Please enter a correct amount of shares")
 
         shares = int(shares)
 
         for stock in stocks:
             if stock["symbol"] == symbol:
                 if stock["total_shares"] < shares:
-                    return apology("not enough shares")
+                    flash(f"not enough shares")
+                    return render_template("/sell.html")
+                    #return apology("not enough shares")
                 else:
                     info = lookup(symbol)
                     if info is None:
-                        return apology("Please enter a correct symbol")
+                        flash(f"Please enter a correct symbol")
+                        return render_template("/sell.html")
+                        #return apology("Please enter a correct symbol")
                     price = info["price"]
                     total_sale = price * shares
 
