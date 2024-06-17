@@ -300,3 +300,8 @@ def sell():
                                session["user_id"], f_now, symbol, shares * -1, info["price"])
 
                     return redirect("/")
+
+# Run the Flask app
+if __name__ == "__main__":
+    logging.info("Flask app started")
+    flask_app.run(host="0.0.0.0", port=8000)
