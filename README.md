@@ -9,6 +9,8 @@
 **BUT.... are you scared of losing all your money!? 😰** <br>
 <br>
 **Well worry no further with Mock investor**, an all in one platform that allows you to see how you would do in the stock market! 
+
+**[Click Here To Start Now](https://mockinvest.azurewebsites.net)**  **Or Use This Link** https://mockinvest.azurewebsites.net
 - You can create an account, and using $10,000 virtual USD, mock invest in any stocks you want!
 - Simply type the ticker code and the amount you want to buy and it will be added to your account!
 - You can see how you with a live portfolio that updates constantly so you can see how your stocks and portfolio are doing, and if your portolfio actualy went above $10,000!!!
@@ -98,3 +100,7 @@ Users can change their account password by entering their current password and t
 - `/logout`: Logs the user out.
 - `/register`: Registers a new user.
 - `/change-password`: Allows the user to change their password.
+
+
+
+Mock Investor is hosted on Azure
