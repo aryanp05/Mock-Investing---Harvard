@@ -1,6 +1,5 @@
 import os
 
-from cs50 import SQL
 from bson import ObjectId
 from pymongo import MongoClient
 from flask import Flask, flash, redirect, render_template, request, session
