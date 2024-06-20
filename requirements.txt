@@ -1,6 +1,7 @@
+bson
 Flask
 Flask-Session
+pymongo
+Werkzeug
 pytz
 requests
-bson
-pymongo
