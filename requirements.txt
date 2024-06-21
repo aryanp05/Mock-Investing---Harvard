@@ -1,7 +1,6 @@
 Flask
 Flask-Session
-pymongo
+pymongo[srv]==3.11.4
 Werkzeug
 pytz
 requests
-bson
