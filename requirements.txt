@@ -4,4 +4,3 @@ pymongo
 Werkzeug
 pytz
 requests
-bson
