@@ -4,3 +4,4 @@ pymongo[srv]==3.11
 Werkzeug
 pytz
 requests
+dnspython
